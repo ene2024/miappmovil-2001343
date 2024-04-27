@@ -1,0 +1,54 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>
+            Agregar tarea
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <form #tareaData="ngForm">
+        <ion-input required label="Nombre de la tarea:" label-placement="floating" fill="outline" name="textInput"
+            [(ngModel)]="newTarea.Name"></ion-input>
+
+        <ion-text><b>Fecha estimada en que se completará: </b></ion-text>
+        <ion-list>
+            <ion-item class="selector">
+                <ion-select placeholder="MES" name="Month" [(ngModel)]="newTarea.Month">
+                    <ion-select-option value="01">Enero</ion-select-option>
+                    <ion-select-option value="02">Febrero</ion-select-option>
+                    <ion-select-option value="03">Marzo</ion-select-option>
+                    <ion-select-option value="04">Abril</ion-select-option>
+                    <ion-select-option value="05">Mayo</ion-select-option>
+                    <ion-select-option value="06">Junio</ion-select-option>
+                    <ion-select-option value="07">Julio</ion-select-option>
+                    <ion-select-option value="08">Agosto</ion-select-option>
+                    <ion-select-option value="09">Septiembre</ion-select-option>
+                    <ion-select-option value="10">Octubre</ion-select-option>
+                    <ion-select-option value="11">Noviembre</ion-select-option>
+                    <ion-select-option value="12">Diciembre</ion-select-option>
+                </ion-select>
+            </ion-item>
+
+            <ion-item class="selector">
+                <ion-select placeholder="AÑO" name="Year" [(ngModel)]="newTarea.Year">
+                    <ion-select-option value="2024">2024</ion-select-option>
+                    <ion-select-option value="2025">2025</ion-select-option>
+                    <ion-select-option value="2026">2026</ion-select-option>
+                    <ion-select-option value="2027">2027</ion-select-option>
+                    <ion-select-option value="2028">2028</ion-select-option>
+                </ion-select>
+            </ion-item>
+        </ion-list>
+
+        <ion-text><b>Descripción: </b></ion-text>
+        <ion-item>
+            <ion-textarea required placeholder="Type something here" [autoGrow]="true" name="textArea"
+                [(ngModel)]="newTarea.Description">
+            </ion-textarea>
+        </ion-item>
+
+    </form>
+
+</ion-content>

@@ -1,0 +1,37 @@
+ion-header {
+    text-align: center;
+}
+
+ion-content {
+    height: 100vh;
+}
+
+ion-input {
+    margin-left: 1%;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    width: 98%;
+}
+
+ion-list {
+    margin-left: 50px;
+}
+
+.selector {
+    width: 100px;
+    float: left;
+    border: 2px solid black;
+    margin-right: 40px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+ion-textarea {
+    border: 2px solid black;
+    border-radius: 8px;
+    padding-left: 5px;
+}
+
+ion-text {
+    margin-left: 20px;
+}
