@@ -1,21 +1,27 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Tarea } from 'src/Tarea';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { IonicModule } from '@ionic/angular';
+import { CommonModule } from '@angular/common';
+
+import { FormsModule } from '@angular/forms';
+import { Tarea } from '../Tarea';
+import { TareasService } from '../tareas.service';
 
 @Component({
     selector: 'app-agregar-tarea',
     templateUrl: './agregar-tarea.component.html',
     styleUrls: ['./agregar-tarea.component.scss'],
+    standalone: true,
+    imports: [IonicModule, CommonModule, FormsModule],
 })
-export class AgregarTareaComponent implements OnInit {
+export class AgregarTareaComponent {
 
-    newTarea: Tarea = {
-        Name: '',
-        Month: 0,
-        Year: 0,
-        Description: '',
+    nuevaTarea: Tarea = { nombre: '', mes: '', anio: 0, descripcion: '' };
+
+    constructor(private TareasService: TareasService) { }
+
+    agregarTarea() {
+        this.TareasService.agregarTarea(this.nuevaTarea);
+        this.nuevaTarea = { nombre: '', descripcion: '', mes: '', anio: 0 };
     }
 
-    constructor() { }
-
-    ngOnInit() { }
 }

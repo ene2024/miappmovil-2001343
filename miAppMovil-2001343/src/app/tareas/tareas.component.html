@@ -1,48 +1,55 @@
-<div class="all">
-    <ion-header>
-        <ion-toolbar>
-            <ion-title>
-                <b>Mi App de Tareas</b>
-            </ion-title>
-        </ion-toolbar>
-    </ion-header>
+<ion-header [translucent]="true">
+    <ion-toolbar>
+        <ion-title>
+            {{ titulo }}
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
 
-    <ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true">
+    <div>
+        <ion-card *ngFor="let tarea of tareas; let i = index">
+            <ion-card-header>
+                <ion-card-subtitle>{{tarea.nombre}}</ion-card-subtitle>
+                <ion-button (click)="eliminarTarea(i)" fill="clear" class="eliminar">Eliminar</ion-button>
+            </ion-card-header>
 
-        <ion-accordion-group *ngFor="let note of tareas">
-            <ion-accordion>
-                <ion-item slot="header">
-                    <ion-label>{{note.Name}}</ion-label>
-                    <ion-label><b>Fecha: </b> {{note.Month}}/{{note.Year}}</ion-label>
-                    <ion-button (click)="dropTarea(note)" class="dropTarea">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                            <path
-                                d="M135.2 17.7C140.6 6.8 151.7 0 163.8 0H284.2c12.1 0 23.2 6.8 28.6 17.7L320 32h96c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 96 0 81.7 0 64S14.3 32 32 32h96l7.2-14.3zM32 128H416V448c0 35.3-28.7 64-64 64H96c-35.3 0-64-28.7-64-64V128zm96 64c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16z" />
-                        </svg>
-                    </ion-button>
-                </ion-item>
-                <div class="ion-padding" slot="content">{{note.Description}}</div>
-            </ion-accordion>
-        </ion-accordion-group>
+            <ion-card-content>
+                <div class="fechaTarjeta">
+                    <p class="txt">Fecha:</p>
+                    <p class="fecha">{{tarea.mes}} {{tarea.anio}}</p>
+                </div>
+            </ion-card-content>
 
-    </ion-content>
+            <ion-accordion-group>
+                <ion-accordion value="detalles">
+                    <ion-item slot="header" color="light">
+                        <ion-label class="verMas">+ Ver más detalles</ion-label>
+                    </ion-item>
+                    <div class="descripcion" slot="content">{{tarea.descripcion}}</div>
+                </ion-accordion>
+            </ion-accordion-group>
+        </ion-card>
 
-    <ion-fab slot="fixed" vertical="bottom" horizontal="end">
-        <ion-fab-button color="secondary" id="addNewAssignment">
-            <ion-icon name="add"></ion-icon>
-        </ion-fab-button>
+    </div>
+
+    <ion-fab>
+        <ion-fab-button (click)="setOpen(true)" class="botonAdd" color="secondary">+</ion-fab-button>
     </ion-fab>
-
-    <ion-modal #modal trigger="addNewAssignment">
+    <ion-modal [isOpen]="isModalOpen">
         <ng-template>
-            <app-agregar-tarea></app-agregar-tarea>
-
-            <ion-fab slot="fixed" vertical="bottom" horizontal="center">
-                <ion-fab-button id="formButton" color="secondary" (click)="modal.dismiss()" (click)="agregarTarea()">
-                    Agregar
-                </ion-fab-button>
-            </ion-fab>
+            <ion-header>
+                <ion-toolbar>
+                    <ion-title>Agregar Tarea</ion-title>
+                    <ion-buttons slot="end">
+                        <ion-button (click)="setOpen(false)">Close</ion-button>
+                    </ion-buttons>
+                </ion-toolbar>
+            </ion-header>
+            <ion-content>
+                <app-agregar-tarea></app-agregar-tarea>
+            </ion-content>
         </ng-template>
     </ion-modal>
 
-</div>
+</ion-content>

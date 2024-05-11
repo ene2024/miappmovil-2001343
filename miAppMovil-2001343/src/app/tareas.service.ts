@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Tarea } from 'src/Tarea';
+import { Tarea } from './Tarea';
 
 @Injectable({
     providedIn: 'root'
@@ -8,19 +8,19 @@ export class TareasService {
 
     constructor() { }
 
-    Tareas: Tarea[] = [];
-
-    getTareas() {
-        return this.Tareas;
-    }
+    tareas: Tarea[] = [];
 
     agregarTarea(tarea: Tarea) {
-        this.Tareas.push(tarea);
+        this.tareas.push(tarea);
+        console.log("Tareas:", this.tareas);
     }
 
-    deleteTarea(tarea: Tarea) {
-        let position: number = this.Tareas.indexOf(tarea);
-        this.Tareas.splice(position, 1);
+    obtenerTareas(): Tarea[] {
+        return this.tareas;
+    }
+
+    eliminarTarea(index: number) {
+        this.tareas.splice(index, 1);
     }
 
 

@@ -1,65 +1,54 @@
-ion-toolbar {
-    --background: #0A3C6E;
-    color: #F8D210;
-    text-align: center;
+ion-card-title {
+    color: #ff4081;
+}
+
+ion-card-subtitle {
+    color: #ff4081;
+    width: 73%;
 }
 
 ion-content {
-    --background: #0A3C6E;
+    --background: #ff4081;
 }
 
-ion-list {
-    background: #0A3C6E;
-    width: 100%;
+ion-card-header {
+    display: flex;
+    justify-content: center;
 }
 
-ion-fab-button {
-    border-style: dashed;
-    border-radius: 30px;
-    margin-right: 30px;
-    margin-bottom: 10px;
+.verMas {
+    display: flex;
+    justify-content: center;
+    color: #ff4081;
 }
 
-ion-button {
-    --background: #F8D210;
-    opacity: 0.8;
-    color: #0A3C6E;
-    width: 99.6%;
-
-    span {
-        width: 100%;
-        text-align: left;
-    }
+.descripcion {
+    padding: 5%;
 }
 
-ion-modal {
-    width: 100%;
+.botonAdd {
+    border-radius: 50%;
+    color: #333333;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
 }
 
-#formButton {
-    background-color: #E53D00;
-    border-style: dashed;
-    border-radius: 10px;
-    width: 30vw;
-    margin-bottom: 10px;
-    --box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.3), 0px 0px 0px 0px rgba(0, 0, 0, 0.15);
+.fechaTarjeta {
+    display: flex;
 }
 
-ion-accordion {
-    margin-top: 5px;
-    border-radius: 5px;
-    width: 98%;
-    margin-left: 1%;
+.txt {
+    color: #333333;
 }
 
-.ion-padding {
-    border: solid;
-    border-width: 2px;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
+.fecha {
+    color: #ff4081;
 }
 
-.dropTarea {
-    width: 30px;
-    height: 38px;
+.eliminar {
+    position: fixed;
+    padding-left: 65%;
+    color: #e57373;
+    font-size: 15px;
 }

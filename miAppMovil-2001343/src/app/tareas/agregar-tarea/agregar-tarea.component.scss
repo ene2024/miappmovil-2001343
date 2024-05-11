@@ -1,37 +1,41 @@
-ion-header {
-    text-align: center;
+.nombre {
+    padding-top: 8%;
+    padding-left: 13%;
+    padding-right: 13%;
 }
 
-ion-content {
-    height: 100vh;
+.fecha {
+    padding-top: 5%;
+    padding-left: 13%;
+    padding-right: 13%;
 }
 
-ion-input {
-    margin-left: 1%;
-    margin-top: 10px;
-    margin-bottom: 20px;
-    width: 98%;
+.descripcion {
+    padding-top: 5%;
+    padding-left: 13%;
+    padding-right: 13%;
+    padding-bottom: 8%;
 }
 
-ion-list {
-    margin-left: 50px;
+.botonAgregar {
+    padding-left: 13%;
+    padding-right: 13%;
 }
 
 .selector {
-    width: 100px;
-    float: left;
-    border: 2px solid black;
-    margin-right: 40px;
-    border-radius: 8px;
-    margin-bottom: 20px;
+    display: flex;
 }
 
-ion-textarea {
-    border: 2px solid black;
-    border-radius: 8px;
-    padding-left: 5px;
+.selectorMes {
+    margin-right: 10%;
 }
 
-ion-text {
-    margin-left: 20px;
+.formularioVentana {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    padding-top: 10%;
 }
